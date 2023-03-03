@@ -12,6 +12,11 @@
 - Internationalized Resource Identifier: https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier
 - Blank node: https://en.wikipedia.org/wiki/Blank_node
 
+## 3. Authoring RDF graph data
+
+- RDF graph at a glance: https://prezi.com/view/BKhuOQHjSzEpMUvtNnWe
+- Add the `solution-looney-tunes.ttl` file 
+
 
 
 
