@@ -1,0 +1,7 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX : <http://looneytunes-graph.com/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\n# 1. Inserting specific triples\nINSERT DATA {\n  :Daffy_Duck :reval_of :Bugs_Bunny .\n  :Taz :enemy_of :Daffy_Duck .\n}\n\n# 2. Delete data\nDELETE DATA {\n  :Taz :enemy_of :Daffy_Duck\n}\n\n# 3. Insert new statements based on certain patterns, e.g. the predicate 'knows' is a reciprocal relation\nINSERT {\n  ?c2 :knows ?c1\n}\nWHERE {\n  ?c1 :knows ?c2\n}\n# see result\nSELECT DISTINCT ?s ?p ?o\nWHERE {\n  VALUES ?p { :reval_of :knows }\n  \n  ?s ?p ?o\n}\n\n# 4.The enemy of my rival could join forces with me\n# 4.1\nINSERT DATA {\n  :Daffy_Duck :reval_of :Bugs_Bunny .\n  :Taz :enemy_of :Daffy_Duck .\n}\n# 4.2\nINSERT {\n  ?c2 :could_join_forces_with ?c3 .\n  ?c3 :could_join_forces_with ?c2\n}\nWHERE {\n  ?c1 :rival_of ?c2 .\n  ?c3 :enemy_of ?c1\n}\n\n# 5. DELETE all\nDELETE WHERE {\n  ?s ?p ?o\n}"
+  }
+]
