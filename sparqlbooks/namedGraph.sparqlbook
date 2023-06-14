@@ -1,0 +1,7 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "PREFIX : <http://looneytunes-graph.com/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX abound: <https://carrier.com/schema/1.1/Abound#>\n\n# 1. Creating named graphs\n# Looney_Tunes_Graph\nINSERT DATA {\n  GRAPH :Looney_Tunes_Graph {\n    # triple\n  }\n}\n# mfg:My_Favourites_Graph\nINSERT DATA {\n  GRAPH mfg:My_Favourites_Graph {\n    :Bugs_Bunny mfg:has_an_appetite_for \"Carrots\" .\n    :Daffy_Duck mfg:has_an_appetite_for \"Spaghetti\" .\n    :Taz mfg:has_an_appetite_for :Bugs_Bunny .\n  }\n}\n\n# 2. Select all from the specific graph\nSELECT *\nFROM mfg:My_Favourites_Graph\nWHERE {\n\t?s ?p ?o\n}\n\n# 3. clear graph\nCLEAR GRAPH mfg:My_Favourites_Graph\n\n# 4. drop graph\nDROP GRAPH mfg:My_Favourites_Graph\n\n# 5. Retrieve a list of all named graphs from a graph database.\nSELECT ?g\nWHERE {\n  GRAPH ?g {}\n}"
+  }
+]

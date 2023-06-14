@@ -1,0 +1,7 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# 1. What are the types of things in the graph?\nSELECT DISTINCT ?t\nWHERE {\n\t?s a ?t\n}\nORDER BY ASC(?t)\n\n# 2. What are the predicates defined in the graph?\nSELECT DISTINCT ?p\nWHERE {\n\t?s ?p ?o\n}\nORDER BY ASC(?p)\n\n# 3. What is the full vocabulary for the graph?\nSELECT DISTINCT ?t ?p ?pType\nWHERE {\n  ?s ?p ?o ;\n     a ?t .\n  \n  BIND (\n    COALESCE (\n      IF (isIRI(?o), \"Resource Predicate\", 1/0),\n      \"Literal Predicate\"\n    ) AS ?pType\n  )\n}\nGROUP BY ?t ?p ?pType\nORDER BY ASC(?pType) ASC(?t)"
+  }
+]

@@ -54,3 +54,18 @@ LIMIT 20
 * For more queries look at the `update.sparqlbook` file.
 
 ***
+
+## 7. Named Graphs
+
+* TriG (syntax): https://en.wikipedia.org/wiki/TriG_(syntax)
+* For more queries look at the `namedGraph.sparqlbook` file.
+
+***
+
+## 8. Exploring the graph schema
+
+* For more queries look at the `exploreGraphSchema.sparqlbook` file.
+
+***
+
+>PDF presentations are posted into the presentations folder
